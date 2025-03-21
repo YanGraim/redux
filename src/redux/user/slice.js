@@ -13,7 +13,10 @@ export const userSlice = createSlice({
         user: {
           name: action.payload.name,
           email: action.payload.email,
-          address: null
+          address: {
+            location: "tv tupinambás",
+            number: 1093
+          }
         }
       }
     }
