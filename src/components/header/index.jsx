@@ -1,24 +1,29 @@
-import styles from './header.module.css'
-import { Link, useNavigate } from 'react-router-dom'
+import styles from "./header.module.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logOutUser } from "../../redux/user/slice";
 
-export function Header(){
+export function Header() {
   const navigate = useNavigate();
-  const user = null;
+  const { user } = useSelector((rootReducer) => rootReducer.user);
+  const dispatch = useDispatch();
 
-  function handleLogin(){
-    navigate("/")
+  function handleLogin() {
+    navigate("/");
   }
 
-  function handleLogout(){
-    dispatch(logoutUser())
-    navigate("/")
+  function handleLogout() {
+    dispatch(logOutUser());
+    navigate("/");
   }
 
-  return(
+  return (
     <header>
       <div className={styles.content}>
         <Link to="/painel">
-          <h1>Dev<span>Redux</span></h1>
+          <h1>
+            Dev<span>Redux</span>
+          </h1>
         </Link>
 
         {user ? (
@@ -32,5 +37,5 @@ export function Header(){
         )}
       </div>
     </header>
-  )
+  );
 }

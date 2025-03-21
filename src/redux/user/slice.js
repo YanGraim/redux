@@ -13,16 +13,19 @@ export const userSlice = createSlice({
         user: {
           name: action.payload.name,
           email: action.payload.email,
-          address: {
-            location: "tv tupinambás",
-            number: 1093
-          }
+          address: null
         }
+      }
+    },
+    logOutUser: (state) => {
+      return {
+        ...state,
+        user: null,
       }
     }
   }
 })
 
 
-export const { createUser } = userSlice.actions;
+export const { createUser, logOutUser } = userSlice.actions;
 export default userSlice.reducer;
