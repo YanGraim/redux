@@ -1,13 +1,14 @@
 import { useState } from "react";
 import styles from "./login.module.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { createUser } from "../../redux/user/slice";
 
 export function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -25,6 +26,8 @@ export function Login() {
         email: email,
       })
     );
+
+    navigate("/painel");
   }
 
   return (
