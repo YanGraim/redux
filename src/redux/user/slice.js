@@ -47,10 +47,19 @@ export const userSlice = createSlice({
           }
         }
       }
+    },
+    deleteAddress: (state) => {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          address: null
+        }
+      }
     }
   }
 })
 
 
-export const { createUser, logOutUser, addAddress } = userSlice.actions;
+export const { createUser, logOutUser, addAddress, deleteAddress } = userSlice.actions;
 export default userSlice.reducer;
