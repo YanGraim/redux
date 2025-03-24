@@ -60,10 +60,18 @@ export const userSlice = createSlice({
     },
     fetchUsers: (state) => {
       console.log("Chamou o fetch users")
+    },
+    fetchUsersSuccess: (state, action) => {
+      console.log("Caiu no sucesso");
+      console.log(action.payload);
+    },
+    fetchUsersFailure: (state, action) => {
+      console.log("Caiu na falha");
+      console.log(action.payload);
     }
   }
 })
 
 
-export const { createUser, logOutUser, addAddress, deleteAddress, fetchUsers } = userSlice.actions;
+export const { createUser, logOutUser, addAddress, deleteAddress, fetchUsers, fetchUsersSuccess, fetchUsersFailure } = userSlice.actions;
 export default userSlice.reducer;
