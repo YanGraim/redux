@@ -3,7 +3,7 @@ import { Header } from "../../components/header";
 import { Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAddress } from "../../redux/user/slice";
+import { deleteAddress, fetchUsers } from "../../redux/user/slice";
 
 export function Home() {
   const { user } = useSelector((rootReducer) => rootReducer.user);
@@ -15,7 +15,7 @@ export function Home() {
   }
 
   function handleFetchUsers() {
-    alert("Teste");
+    dispatch(fetchUsers());
   }
 
   return (
