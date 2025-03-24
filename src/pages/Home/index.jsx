@@ -14,6 +14,10 @@ export function Home() {
     alert("Endereço deletado com sucesso!");
   }
 
+  function handleFetchUsers() {
+    alert("Teste");
+  }
+
   return (
     <>
       <Header />
@@ -52,6 +56,12 @@ export function Home() {
                 </div>
               </>
             )}
+
+            <hr />
+            <br />
+            <h2>Lista de usuários</h2>
+            <button onClick={handleFetchUsers}>Buscar usuários</button>
+            <br />
           </div>
         </main>
       </div>
