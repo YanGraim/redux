@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
-  users: []
+  users: [],
+  loading: false
 }
 
 export const userSlice = createSlice({
@@ -59,14 +60,16 @@ export const userSlice = createSlice({
       }
     },
     fetchUsers: (state) => {
-      console.log("Chamou o fetch users")
+      state.loading = true;
     },
     fetchUsersSuccess: (state, action) => {
       state.users = action.payload;
+      state.loading = false;
     },
     fetchUsersFailure: (state, action) => {
       console.log("Caiu na falha");
       console.log(action.payload);
+      state.loading = false;
     }
   }
 })
