@@ -62,8 +62,7 @@ export const userSlice = createSlice({
       console.log("Chamou o fetch users")
     },
     fetchUsersSuccess: (state, action) => {
-      console.log("Caiu no sucesso");
-      console.log(action.payload);
+      state.users = action.payload;
     },
     fetchUsersFailure: (state, action) => {
       console.log("Caiu na falha");
